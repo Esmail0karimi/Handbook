@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10151f">
+  <title>Handbook — Technical Analysis Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">H</span><span>HANDBOOK<small>TECHNICAL ANALYSIS READER</small></span></a>
+    <div class="top-actions">
+      <span id="fileStatus" class="status">هنوز کتابی بارگذاری نشده</span>
+      <label class="upload-btn" for="pdfInput">＋ بارگذاری PDF</label>
+      <input id="pdfInput" type="file" accept="application/pdf,.pdf" hidden>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="welcome" id="welcome">
+      <div class="eyebrow">YOUR PERSONAL STUDY SPACE</div>
+      <h1>مطالعه عمیق‌تر،<br><em>تحلیل دقیق‌تر.</em></h1>
+      <p>نسخه PDF کتاب را از دستگاهت انتخاب کن تا متن انگلیسی را کنار ترجمه فارسی بخوانی و به هر دو زبان گوش بدهی.</p>
+      <label class="primary-btn" for="pdfInput">انتخاب فایل کتاب <span>←</span></label>
+      <div class="privacy-note"><span class="dot"></span> فایل PDF در مرورگر خودت پردازش می‌شود و به مخزن GitHub ارسال نمی‌شود.</div>
+    </section>
+
+    <section id="reader" class="reader hidden">
+      <aside class="sidebar">
+        <div class="side-heading">کتابخانه مطالعه</div>
+        <div class="book-card">
+          <div class="book-cover"><span>THE</span><strong>HANDBOOK<br>OF TECHNICAL<br>ANALYSIS</strong><small>MARK ANDREW LIM</small></div>
+          <div class="book-meta"><strong id="bookName">The Handbook of Technical Analysis</strong><small id="pageCount">—</small></div>
+        </div>
+        <div class="side-heading section-gap">فهرست صفحات</div>
+        <div class="page-tools">
+          <input id="pageSearch" type="search" placeholder="جست‌وجو در متن انگلیسی…">
+        </div>
+        <div id="pageList" class="page-list"></div>
+        <div class="sidebar-foot">یادداشت‌ها فقط در همین مرورگر ذخیره می‌شوند.</div>
+      </aside>
+
+      <section class="workspace">
+        <div class="reader-toolbar">
+          <div class="breadcrumbs"><span>کتابخانه</span><b>/</b><strong id="currentPageLabel">صفحه ۱</strong></div>
+          <div class="pager">
+            <button id="prevPage" class="icon-btn" title="صفحه قبل">→</button>
+            <span id="pageNumber">1 / 1</span>
+            <button id="nextPage" class="icon-btn" title="صفحه بعد">←</button>
+          </div>
+        </div>
+        <div class="columns">
+          <article class="reading-panel english-panel" dir="ltr">
+            <div class="panel-head"><div><span class="lang-tag">EN</span><strong>Original text</strong></div><button id="speakEnglish" class="listen-btn">▶ Listen</button></div>
+            <div id="englishText" class="page-text english-text">برای شروع، فایل PDF را بارگذاری کن.</div>
+          </article>
+          <article class="reading-panel persian-panel">
+            <div class="panel-head"><div><span class="lang-tag fa-tag">FA</span><strong>ترجمه فارسی</strong></div><button id="speakPersian" class="listen-btn">▶ پخش صوت</button></div>
+            <textarea id="persianText" class="translation" placeholder="ترجمه روان این صفحه را اینجا وارد کن…"></textarea>
+            <div class="translation-foot"><span id="saveState">ذخیره خودکار در همین مرورگر</span><span id="charCount">۰ نویسه</span></div>
+          </article>
+        </div>
+        <div class="bottom-bar">
+          <div class="progress-wrap"><div class="progress-label"><span>پیشرفت مطالعه</span><strong id="progressText">۰٪</strong></div><div class="progress-track"><div id="progressFill"></div></div></div>
+          <button id="stopSpeech" class="stop-btn">■ توقف صدا</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
